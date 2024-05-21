@@ -1,0 +1,57 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+public class Login_Dashboard {
+    public static void main(String[] args) {
+
+
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://localhost:5173/login");
+
+//            driver.manage().window().maximize();
+
+
+//        Login page:
+//        select Username
+        driver.findElement(By.xpath("//input[@name='login']")).sendKeys("Vaida");
+
+//        select Password
+        driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Vaida@gmail.com1");
+
+//        select remember me
+        driver.findElement(By.xpath("//label//input[@type='checkbox']")).click();
+
+//        select Login
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+
+
+        Duration timeout = Duration.ofSeconds(1);
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Projects']")));
+
+//         select Projects
+//        driver.findElement(By.xpath("//a[text()='Projects']")).click();
+
+
+//
+
+
+
+//        Duration timeout = Duration.ofSeconds(10);
+//        WebDriverWait wait = new WebDriverWait(driver, timeout);
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//i[@class='fas fa-sign-out']")));
+
+
+//        select Logout button
+//        driver.findElement(By.xpath("//i[@class='fas fa-sign-out']")).click();
+
+//        driver.quit();
+
+    }
+}
